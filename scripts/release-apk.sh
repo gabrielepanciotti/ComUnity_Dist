@@ -38,10 +38,21 @@ fi
 # si installa, ma ha una firma diversa da quella delle release precedenti, e chi
 # ce l'ha gia' installato non riesce ad aggiornare: deve disinstallare e
 # perdere la sessione. Meglio accorgersene qui che dopo averlo distribuito.
-APKSIGNER="$(ls "${ANDROID_SDK:-$HOME/AppData/Local/Android/Sdk}"/build-tools/*/apksigner 2>/dev/null | tail -1 || true)"
+# Su Windows lo strumento si chiama apksigner.bat, su Linux/macOS apksigner:
+# cercare solo il secondo nome faceva saltare il controllo in silenzio proprio
+# sulla macchina da cui si pubblica.
+SDK="${ANDROID_SDK:-${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/AppData/Local/Android/Sdk}}}"
+APKSIGNER="$(ls "$SDK"/build-tools/*/apksigner.bat "$SDK"/build-tools/*/apksigner 2>/dev/null | tail -1 || true)"
 if [[ -n "$APKSIGNER" ]]; then
-  CERT="$("$APKSIGNER" verify --print-certs "$APK" 2>/dev/null | grep -m1 'Subject' || true)"
-  echo "Firma: $CERT"
+  CERT="$("$APKSIGNER" verify --print-certs "$APK" 2>/dev/null | grep -m1 'certificate DN' || true)"
+  echo "Firma: ${CERT:-(nessuna)}"
+  # Nessuna riga = nessuna firma leggibile: e' un caso da fermare, non da
+  # lasciar passare come faceva la versione che cercava la parola sbagliata e
+  # trovava sempre una stringa vuota.
+  if [[ -z "$CERT" ]]; then
+    echo "RIFIUTO: non riesco a leggere la firma di questo APK." >&2
+    exit 1
+  fi
   if echo "$CERT" | grep -qi 'Android Debug'; then
     echo "RIFIUTO: questo APK e' firmato con la chiave di DEBUG." >&2
     echo "Metti android/key.properties e il keystore, poi ricompila." >&2

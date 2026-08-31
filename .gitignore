@@ -1,0 +1,4 @@
+# Il sito e le release non hanno dipendenze da installare.
+.DS_Store
+Thumbs.db
+*.apk

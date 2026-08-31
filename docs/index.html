@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComUnity — Io ho quello che serve a te</title>
+<meta name="description" content="Un social network basato sulla sharing economy: quello che ti serve ce l'ha gia' qualcuno vicino a te. Scarica l'app per Android.">
+<meta property="og:title" content="ComUnity">
+<meta property="og:description" content="Io ho quello che serve a te, tu hai quello che serve a me.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --brand: #5CC582;
+    --brand-dark: #3f9b62;
+    --ink: #12211a;
+    --muted: #5d6f66;
+    --bg: #ffffff;
+    --soft: #f2f7f4;
+    --line: #dfe9e3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eaf3ee;
+      --muted: #9db0a6;
+      --bg: #0e1512;
+      --soft: #16211c;
+      --line: #24322b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 72px 0 40px; }
+  .logo {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: -.02em; font-size: 20px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--brand); }
+  h1 {
+    margin: 32px 0 12px;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -.03em;
+  }
+  .lede { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); margin: 0 0 32px; max-width: 34em; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--brand); color: #06170e;
+    font-weight: 650; font-size: 17px;
+    padding: 15px 26px; border-radius: 12px;
+    text-decoration: none;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .cta:hover { background: var(--brand-dark); color: #fff; transform: translateY(-1px); }
+  .cta-note { margin-top: 12px; font-size: 14px; color: var(--muted); }
+  .invite {
+    margin: 28px 0 0; padding: 18px 20px;
+    background: var(--soft); border: 1px solid var(--line); border-radius: 12px;
+    font-size: 15px;
+  }
+  .invite strong { color: var(--ink); }
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 20px; letter-spacing: -.01em; margin: 0 0 16px; }
+  .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .grid h3 { font-size: 16px; margin: 0 0 6px; }
+  .grid p { margin: 0; color: var(--muted); font-size: 15px; }
+  ol { padding-left: 20px; margin: 0; }
+  ol li { margin-bottom: 10px; color: var(--muted); }
+  ol li strong { color: var(--ink); font-weight: 600; }
+  footer { padding: 40px 0 72px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  code {
+    background: var(--soft); border: 1px solid var(--line);
+    padding: 1px 6px; border-radius: 5px; font-size: .92em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo"><span class="dot"></span> ComUnity</div>
+    <h1>Io ho quello che serve a te,<br>tu hai quello che serve a me.</h1>
+    <p class="lede">
+      Quello che ti serve ce l'ha gia' qualcuno vicino a te. ComUnity mette in
+      contatto chi cerca e chi ha: si presta, si baratta, si regala, si condivide.
+      Dal possesso all'accesso.
+    </p>
+
+    <a class="cta" href="https://github.com/gabrielepanciotti/ComUnity_Dist/releases/latest/download/comunity.apk">
+      Scarica l'app per Android
+    </a>
+    <div class="cta-note">File .apk &middot; Android 6 o superiore &middot; sempre l'ultima versione</div>
+
+    <div class="invite">
+      <strong>Per creare l'account serve un codice di invito.</strong>
+      L'app la scarica chiunque, ma per entrare serve un codice: te lo da' chi ti
+      ha invitato. Vale una volta sola e scade dopo qualche giorno, quindi usalo
+      subito.
+    </div>
+  </header>
+
+  <section>
+    <h2>Come funziona</h2>
+    <div class="grid">
+      <div>
+        <h3>La tua wishlist</h3>
+        <p>Le cose che ti servono: un trapano per un pomeriggio, un passaggio, due ore di aiuto per un trasloco.</p>
+      </div>
+      <div>
+        <h3>La tua sharelist</h3>
+        <p>Le cose che puoi mettere a disposizione. Quasi tutti hanno piu' di quanto pensano.</p>
+      </div>
+      <div>
+        <h3>L'incontro</h3>
+        <p>ComUnity trova le combinazioni fra chi cerca e chi ha, a partire da chi ti sta vicino.</p>
+      </div>
+      <div>
+        <h3>La fiducia</h3>
+        <p>Dopo ogni scambio ci si valuta a vicenda. La reputazione si costruisce sulle cose fatte davvero.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Installare un'app fuori dallo Store</h2>
+    <ol>
+      <li><strong>Scarica il file</strong> dal pulsante qui sopra, dal telefono.</li>
+      <li><strong>Aprilo</strong> dalle notifiche o dalla cartella Download.</li>
+      <li>Android chiedera' il permesso di <strong>installare da questa origine</strong>: e' normale per le app che non passano dal Play Store. Concedilo e torna indietro.</li>
+      <li><strong>Apri ComUnity</strong>, registrati e inserisci il codice di invito.</li>
+    </ol>
+    <p style="color:var(--muted);font-size:15px;margin-top:16px">
+      Gli aggiornamenti non arrivano da soli: quando esce una versione nuova,
+      torna qui e riscarica. Il collegamento punta sempre all'ultima.
+    </p>
+  </section>
+
+  <footer>
+    ComUnity &middot; app in prova, non ancora sul Play Store.<br>
+    Problemi o segnalazioni: scrivi a chi ti ha invitato.
+  </footer>
+
+</div>
+</body>
+</html>
